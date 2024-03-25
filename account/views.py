@@ -113,7 +113,7 @@ def Recover_pass(request):
             pass_recover = Password_recovery(user=user, forget_password_token=token)
             pass_recover.save()
             subject = "Forgot password link."
-            message = f"Ckick on the link to reset your password -- http://127.0.0.1:8000/new_pass/{token}/"
+            message = f"Your user name : {user.username} || Ckick on the link to reset your password -- http://127.0.0.1:8000/new_pass/{token}/"
             from_email = settings.EMAIL_HOST_USER
             recipent = [email]
             send_mail(subject, message, from_email, recipent)
