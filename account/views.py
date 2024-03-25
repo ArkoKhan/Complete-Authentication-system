@@ -138,10 +138,10 @@ def New_pass(request, token):
             user_id =  request.POST.get("user_id")
             if user_id is None:
                 messages.success(request, "No user id found")
-                return redirect(f"recovery_pass/{token}/")
+                return redirect(f"new_pass//{token}/")
             if password != password1:
                 messages.success(request, "Password did not match")
-                return redirect(f"recovery_pass/{token}/")
+                return redirect(f"new_pass//{token}/")
             user_obj = User.objects.get(id=user_id)
             user_obj.set_password(password)
             user_obj.save()
